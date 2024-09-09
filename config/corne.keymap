@@ -3,11 +3,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-
-#include "includes/macros.dtsi"
-#include "includes/combos.dtsi"
-#include "includes/behaviors.dtsi"
-
 / {
     chosen { 
         zmk,matrix-transform = &five_column_transform; 
