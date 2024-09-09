@@ -6,9 +6,13 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
-#include "keypos_def/keypos_36keys.h"
-#include "includes/3x5.dtsi"
+#include "keys/36.h"
+#include "includes/macros.dtsi"
+#include "includes/combos.dtsi"
+#include "includes/behaviors.dtsi"
 
 / {
     chosen { 
