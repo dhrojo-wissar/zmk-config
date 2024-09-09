@@ -4,68 +4,57 @@
  * SPDX-License-Identifier: MIT
  */
 
-#define MOUSE_KEYS
-
-#include "keypos_def/keypos_36keys.h"
-#include "includes/3x5.dtsi"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+#include "keypos_def/keypos_36keys.h"
+#include "includes/3x5.dtsi"
+
 / {
-    chosen { zmk,matrix-transform = &five_column_transform; };
-};
+    chosen { 
+        zmk,matrix-transform = &five_column_transform; 
+    };
+  };
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | 
-            // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | 
-            // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | 
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-            bindings = <
-&kp Q  &kp W  &kp E              &kp R                &kp T                 &kp Y                      &kp U      &kp I            &kp O               &kp P           &kp A           &kp S
-&kp D  &kp F  &kp G              &kp H                &kp J                 &kp K                      &kp L      &kp APOS         &mt LEFT_CONTROL Z  &mt LEFT_WIN X  &mt LEFT_ALT C  &mt LEFT_SHIFT V
-&kp B  &kp N  &mt RIGHT_SHIFT M  &mt RIGHT_ALT COMMA  &mt RIGHT_GUI PERIOD  &mt RIGHT_CONTROL SLASH    &lt 3 ESC  &lt 2 BACKSPACE  &lt 1 TAB           &kp RET         &kp SPACE       &kp EXCL
+        default_layer {                     
+            bindings = <  
+&kp Q               &kp W           &kp E           &kp R             &kp T            &kp Y    &kp U              &kp I                &kp O                 &kp P           
+&kp A               &kp S           &kp D           &kp F             &kp G            &kp H    &kp J              &kp K                &kp L                 &kp APOS         
+&mt LEFT_CONTROL Z  &mt LEFT_WIN X  &mt LEFT_ALT C  &mt LEFT_SHIFT V  &kp B            &kp N    &mt RIGHT_SHIFT M  &mt RIGHT_ALT COMMA  &mt RIGHT_GUI PERIOD  &mt RIGHT_CONTROL SLASH    
+                                    &lt 3 ESC       &lt 2 BACKSPACE   &lt 1 TAB        &kp RET  &kp SPACE  &kp EXCL
             >;
         };
 
         lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | 
-            // | BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     | 
-            // |     |     |     |     |     |   |     |     |     |     |     | 
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
             bindings = <
-&kp BSLH   &kp LS(PRCNT)  &kp LS(PIPE)  &kp LS(AMPS)  &kp LS(LPAR)  &kp LS(RPAR)     &kp N7  &kp N8    &kp N9        &kp LS(CARET)  &kp EQUAL  &kp LS(AT)
-&kp MINUS  &kp LS(PLUS)   &kp LS(LBRC)  &kp LS(RBRC)  &kp N4        &kp N5           &kp N6  &kp SEMI  &kp LS(DLLR)  &kp LS(POUND)  &kp FSLH   &kp LS(STAR)
-&kp LBKT   &kp RBKT       &kp N1        &kp N2        &kp N3        &kp LS(UNDER)    &trans  &trans    &trans        &kp NUMBER_0   &trans     &trans
+&kp BSLH      &kp LS(PRCNT)  &kp LS(PIPE)  &kp LS(AMPS)  &kp LS(LPAR)                   &kp LS(RPAR)  &kp N7  &kp N8  &kp N9  &kp LS(CARET)  
+&kp EQUAL     &kp LS(AT)     &kp MINUS     &kp LS(PLUS)  &kp LS(LBRC)                   &kp LS(RBRC)  &kp N4  &kp N5  &kp N6  &kp SEMI  
+&kp LS(DLLR)  &kp LS(POUND)  &kp FSLH      &kp LS(STAR)  &kp LBKT                       &kp RBKT      &kp N1  &kp N2  &kp N3  &kp LS(UNDER)  
+                             &trans        &trans        &trans                         &kp NUMBER_0  &trans  &trans
             >;
         };
 
         raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | 
-            // |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  | 
-            // |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" | 
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp CAPS        &kp PG_UP  &kp UP   &kp DEL  &kp PRINTSCREEN  &trans    &trans  &trans     &trans          &trans     &kp HOME  &kp LEFT
-&kp DOWN        &kp RIGHT  &kp END  &trans   &trans           &trans    &trans  &kp COLON  &kp SCROLLLOCK  &kp PG_DN  &kp INS   &kp C_PAUSE
-&kp KP_NUMLOCK  &trans     &trans   &trans   &trans           &trans    &trans  &trans     &trans          &trans     &trans    &trans
+&kp CAPS        &kp PG_UP  &kp UP    &kp DEL      &kp PRINTSCREEN                        &trans  &trans  &trans  &trans  &trans     
+&kp HOME        &kp LEFT   &kp DOWN  &kp RIGHT    &kp END                                &trans  &trans  &trans  &trans  &kp COLON  
+&kp SCROLLLOCK  &kp PG_DN  &kp INS   &kp C_PAUSE  &kp KP_NUMLOCK                         &trans  &trans  &trans  &trans  &trans    
+                           &trans    &trans       &trans                                 &trans  &trans  &trans
             >;
         };
 
         layer_3 {
+
             bindings = <
-&kp C_BRI_DEC  &trans           &trans  &kp C_BRI_UP  &trans  &trans     &kp F7  &kp F8   &kp F9  &kp F12  &kp C_VOLUME_DOWN  &trans
-&kp C_MUTE     &kp C_VOLUME_UP  &trans  &trans        &kp F4  &kp F5     &kp F6  &kp F11  &trans  &trans   &trans             &trans
-&trans         &trans           &kp F1  &kp F2        &kp F3  &kp F10    &trans  &trans   &trans  &trans   &trans             &trans
+&kp C_BRI_DEC      &trans  &trans      &kp C_BRI_UP     &trans                           &trans  &kp F7  &kp F8   &kp F9  &kp F12  
+&kp C_VOLUME_DOWN  &trans  &kp C_MUTE  &kp C_VOLUME_UP  &trans                           &trans  &kp F4  &kp F5   &kp F6  &kp F11  
+&trans             &trans  &trans      &trans           &trans                           &trans  &kp F1  &kp F2   &kp F3  &kp F10 
+                           &trans      &trans           &trans                           &trans  &trans  &trans
             >;
         };
     };
